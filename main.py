@@ -29,6 +29,16 @@ with open('./connections/followers_and_following/following.json', 'r') as f:
 not_follow_you_back = sorted(following - followers)
 not_follow_by_you = sorted(followers - following)
 
+with open('followers.txt', 'w') as f:
+    f.write("People follows you:\n")
+    for u, t in followers_time.items():
+        f.write(f"- username: {u}, time: {t}\n")
+
+with open('following.txt', 'w') as f:
+    f.write("People you follow:\n")
+    for u, t in following_time.items():
+        f.write(f"- username: {u}, time: {t}\n")
+
 with open('not_follow_you_back.txt', 'w') as f:
     f.write("People not following you back:\n")
     for u in not_follow_you_back:
